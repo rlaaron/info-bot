@@ -77,4 +77,9 @@ const getAbi=async(url)=>{
 
 }
 // geturl()
+
 getAbi(geturl(address,apiKey))
+module.exports = {
+    getAbi,
+    geturl
+}
