@@ -4,7 +4,7 @@ const {ethers} = require('ethers')
 // const address='0x805B11d92Dcf960f14f5828E0c0F10772eE1E0D8' //azupreme
 // const address='0xED5AF388653567Af2F388E6224dC7C4b3241C544'//azuki
 // const address='0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB'// crypto punks
-const address='0x395585cDCBD89d11c47EAd0567dC5b1eEEED471E'// test
+// const address='0x395585cDCBD89d11c47EAd0567dC5b1eEEED471E'// test
 const apiKey='MSV9PH9SH128GIBNEHW7IGP2WU2TN26RSU'
 const geturl= (address,apiKey)=>{
     const url=`https://api.etherscan.io/api?module=contract&action=getabi&address=${address}&apikey=${apiKey}`
@@ -78,7 +78,7 @@ const getAbi=async(url)=>{
 }
 // geturl()
 
-getAbi(geturl(address,apiKey))
+// getAbi(geturl(address,apiKey))
 module.exports = {
     getAbi,
     geturl

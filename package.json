@@ -2,6 +2,14 @@
   "dependencies": {
     "axios": "^0.27.2",
     "discord.js": "^13.8.0",
+    "dotenv": "^16.0.1",
     "ethers": "^5.6.9"
+  },
+  "scripts": {
+    "test": "node index2",
+    "dev": "nodemon index2.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }
