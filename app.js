@@ -17,65 +17,81 @@ const infuraUrl='https://mainnet.infura.io/v3/0f9bcfd505d7446cb8d7a69bdef43497'
  * supply, cost, max supply, max mint amount per tx, and revealed.
  * </code>
  */
-const getAbi=async(url)=>{
-    const res=await axios.get(url)
-    const abi=JSON.parse(res.data.result)
-    // console.log(abi)
-    const provider=new ethers.providers.JsonRpcProvider(infuraUrl)
-    const contract=new ethers.Contract(
-      address,
-      abi,
-      provider
-    )
-
-    if(contract.name){
-        const name=await contract.name();
-        console.log("name: ",name);
-    }else{
-        console.log("name not found");
-    }
-
-    if(contract.totalSupply){
-        const totalSupply=await contract.totalSupply()
-        console.log("totalSupply = ",totalSupply.toString())
-    }else{
-        console.log("totalSupply not found");
-    }
-    
-    if(contract.cost){
-        const cost=await contract.cost();
-        costeth = cost/1000000000000000000;
-        console.log("cost = ",costeth.toString())
-    }else if(contract.price){
-        const cost=await contract.price();
-        costeth = cost/1000000000000000000;
-        console.log("cost = ",costeth.toString())
-    }else{
-        console.log("cost not found");
-    }
-
-    if(contract.maxSupply){
-        const maxSupply = await contract.maxSupply()
-        console.log("maxSupply = ",maxSupply.toString())
-    }else{
-        console.log("max Supply not found");
-    }
-
-    if(contract.maxMintAmountPertx){
-        const maxMintAmountPerTx = await contract.maxMintAmountPertx()
-        console.log("maxMintAmountPerTx = ",maxMintAmountPerTx.toString())
-    }else{
-        console.log("maxMintAmountPerTx not found");
-    }
-
-    if(contract.revealed){
-        const revealed = await contract.revealed()
-        console.log("revealed: ",revealed.toString())
-    }else{
-        console.log("revealed not found");
-    }
-
-}
+ let info= [];
+ const getAbi=async(url,address)=>{
+     const res=await axios.get(url)
+     const abi=JSON.parse(res.data.result)
+     const address2 = address;
+     // console.log(abi)
+     const provider=new ethers.providers.JsonRpcProvider(infuraUrl)
+     const contract=new ethers.Contract(
+       address2,
+       abi,
+       provider
+     )
+   
+     if(contract.name){
+         const name=await contract.name();
+         // console.log("name: ",name); 
+         info[1]= `name: ${name}\n`;
+ 
+     }else{
+         // console.log("name not found");
+         info[1]= `name not found\n`;
+     }
+ 
+     if(contract.totalSupply){
+         const totalSupply=await contract.totalSupply()
+         // console.log("totalSupply = ",totalSupply.toString())
+         info[2]= `totalSupply = ${totalSupply.toString()}\n`;
+     }else{
+         // console.log("totalSupply not found");
+         info[2]= `totalSupply not found\n`;
+     }
+     
+     
+     if(contract.cost){
+         const cost=await contract.cost();
+         costeth = cost/1000000000000000000;
+         info[3] = `cost = ${costeth.toString()}\n`
+     }else if(contract.price){
+         const cost=await contract.price();
+         costeth = cost/1000000000000000000;
+         info[3] = `cost = ${costeth.toString()}\n`
+     }else{
+         info[3] = "cost not found\n";
+     }
+ 
+     if(contract.maxSupply){
+         const maxSupply = await contract.maxSupply()
+         info[4] = `maxSupply = ${ maxSupply.toString()}\n`
+     }else{
+         info[4] = "max Supply not found\n";
+     }
+ 
+     if(contract.maxMintAmountPertx){
+         const maxMintAmountPerTx = await contract.maxMintAmountPertx()
+         info[5] = `maxMintAmountPerTx = ${maxMintAmountPerTx.toString()}\n`
+     }else{
+         info[5] = "maxMintAmountPerTx not found\n";
+     }
+ 
+     if(contract.revealed){
+         const revealed = await contract.revealed()
+         info[6] = `revealed: ${revealed.toString()}\n`
+     }else{
+         info[6] = "revealed not found\n";
+     }
+ 
+     // if(contract.totalSupply){
+     //     const revealed = await contract.revealed()
+     //     info[6] = `revealed: ${revealed.toString()}\n`
+     // }else{
+     //     info[6] = "revealed not found\n";
+     // }
+     return info;
+ 
+ }
 // geturl()
 
 // getAbi(geturl(address,apiKey))
