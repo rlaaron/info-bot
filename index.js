@@ -27,22 +27,23 @@ client.on('messageCreate', async (msg) => {
 
             if (comando == "c") {
                 const embed = new Discord.MessageEmbed()
-                    .setColor("GOLD")
+                    .setColor("BLUE")
                     // .setAuthor(msg.author.username, msg.author.avatarURL())
-                    .setTitle(result.name)
+                    .setTitle(`:pushpin: ${result.name}`)
                     .addFields(
-                        { name: "Cost:", value: result.cost, inline: false },
-                        { name: "TotalSupply", value: result.totalSupply, inline: false },
-                        { name: "Max Supply", value: result.maxsupply, inline: false },
-                        { name: "Max Tx", value: result.maxtx, inline: false },
-                        { name: "Max Wallet", value: result.maxWallet, inline: false },
-                        { name: "Reveled", value: result.reveled, inline: false },
-                        { name: "Left", value: result.left, inline: false },
+                        { name: ":moneybag: Cost:", value: `${result.cost}`, inline: true },
+                        { name: ":small_blue_diamond: TotalSupply", value: result.totalSupply, inline: true },
+                        { name: ":small_blue_diamond: Max Supply", value: result.maxsupply, inline: true },
+                        { name: ":small_blue_diamond: Max Tx", value: result.maxtx, inline: true },
+                        { name: ":small_blue_diamond: Max Wallet", value: result.maxWallet, inline: true },
+                        { name: ":small_blue_diamond: Reveled", value: result.reveled, inline: true },
+                        { name: ":small_blue_diamond: Left", value: result.left, inline: true },
                     )
-                    // .setThumbnail("https://img.seadn.io/files/b40b563604decde9160b2b3cd7b018fc.jpg?fit=max&auto=format")
+                    .setThumbnail("https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/1257px-Ethereum_logo_2014.svg.png")
+                    // .setThumbnail("https://w7.pngwing.com/pngs/268/1013/png-transparent-ethereum-eth-hd-logo-thumbnail.png")
                     // .setImage("https://img.seadn.io/files/b40b563604decde9160b2b3cd7b018fc.jpg?fit=max&auto=format")
                     // .setFooter("InfoBot")
-                    .setTimestamp()
+                    // .setTimestamp()
                 msg.reply({ embeds: [embed], components: [] })
 
             }

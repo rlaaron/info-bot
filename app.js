@@ -35,10 +35,10 @@ const infuraUrl='https://mainnet.infura.io/v3/0f9bcfd505d7446cb8d7a69bdef43497'
      if(contract.name){
          const name=await contract.name();
          // console.log("name: ",name); 
-         info.name= `:pushpin: ${name}\n`;
+         info.name= `${name}\n`;
      }else{
          // console.log("name not found");
-         info.name= `:pushpin: :grey_question:\n`;
+         info.name= `:grey_question:\n`;
      }
  
      
@@ -47,17 +47,17 @@ const infuraUrl='https://mainnet.infura.io/v3/0f9bcfd505d7446cb8d7a69bdef43497'
      if(contract.cost){
          const cost=await contract.cost();
          costeth = cost/1000000000000000000;
-         info.cost = `:moneybag: ${costeth.toString()}\n`
+         info.cost = `${costeth.toString()}\n`
      }else if(contract.price){
          const cost=await contract.price();
          costeth = cost/1000000000000000000;
-         info.cost = `:moneybag: ${costeth.toString()}\n`
+         info.cost = `${costeth.toString()}\n`
      }else if(contract.PRICE){
         const cost=await contract.PRICE();
         costeth = cost/1000000000000000000;
-        info.cost = `:moneybag: ${costeth.toString()}\n`
+        info.cost = `${costeth.toString()}\n`
     }else{
-         info.cost = ":moneybag: Free\n";
+         info.cost = "Free\n";
      }
 
     let totalSupply;
@@ -67,11 +67,11 @@ const infuraUrl='https://mainnet.infura.io/v3/0f9bcfd505d7446cb8d7a69bdef43497'
         totalSupply=await contract.totalSupply()
         // console.log("totalSupply = ",totalSupply.toString())
         // info[3]= `totalSupply = ${totalSupply.toString()}\n`;
-        info.totalSupply = `:small_blue_diamond: ${totalSupply.toString()}\n`;
+        info.totalSupply = `${totalSupply.toString()}\n`;
     }else{
         // console.log("totalSupply not found");
         // info[3]= `totalSupply not found\n`;
-        info.totalSupply = `:small_blue_diamond: :grey_question:\n`;
+        info.totalSupply = `:grey_question:\n`;
     }
 
     /* Checking if the contract has a max supply. If it does, it will return the max supply. If it
@@ -80,18 +80,18 @@ const infuraUrl='https://mainnet.infura.io/v3/0f9bcfd505d7446cb8d7a69bdef43497'
      if(contract.maxSupply){
         maxSupply = await contract.maxSupply()
         //  info[4] = `maxSupply = ${ maxSupply.toString()}\n`
-         info.maxsupply = `:small_blue_diamond: ${ maxSupply.toString()}\n`
+         info.maxsupply = `${ maxSupply.toString()}\n`
      }else if(contract.TOKEN_LIMIT){  
          maxSupply = await contract.TOKEN_LIMIT()
         // info[4] = `maxSupply = ${ maxSupply.toString()}\n`
-        info.maxsupply = `:small_blue_diamond: ${ maxSupply.toString()}\n`
+        info.maxsupply = `${ maxSupply.toString()}\n`
     }else if(contract.MAX_SUPPLY){
          maxSupply = await contract.MAX_SUPPLY()
         // info[4] = `maxSupply = ${ maxSupply.toString()}\n`
-        info.maxsupply = `:small_blue_diamond: ${ maxSupply.toString()}\n`
+        info.maxsupply = `${ maxSupply.toString()}\n`
     }else{
         //  info[4] = "max Supply: not found\n";
-         info.maxsupply = ":small_blue_diamond: :grey_question:\n";
+         info.maxsupply = ":grey_question:\n";
      }
  
      /* Checking if the contract has a max mint amount per tx. If it does, it will return the max mint
@@ -99,40 +99,40 @@ const infuraUrl='https://mainnet.infura.io/v3/0f9bcfd505d7446cb8d7a69bdef43497'
      if(contract.maxMintAmountPertx){
          const maxMintAmountPerTx = await contract.maxMintAmountPertx()
         //  info[5] = `maxTx = ${maxMintAmountPerTx.toString()}\n`
-         info.maxtx = `:small_blue_diamond: ${maxMintAmountPerTx.toString()}\n`
+         info.maxtx = `${maxMintAmountPerTx.toString()}\n`
      }else if(contract.MAX_JUDGE_MINT){
         const  maxMintAmountPerTx = await contract.MAX_JUDGE_MINT()
         // info[5] = `maxTx = ${ maxMintAmountPerTx.toString()}\n`
-        info.maxtx = `:small_blue_diamond: ${ maxMintAmountPerTx.toString()}\n`
+        info.maxtx = `${ maxMintAmountPerTx.toString()}\n`
     }else if(contract.maxMintSupply){
         const  maxMintAmountPerTx = await contract.maxMintSupply()
         // info[5] = `maxTx = ${ maxMintAmountPerTx.toString()}\n`
-        info.maxtx = `:small_blue_diamond: ${ maxMintAmountPerTx.toString()}\n`
+        info.maxtx = `${ maxMintAmountPerTx.toString()}\n`
     }else if(contract.maxMintAmount){
         const maxMintAmountPerTx = await contract.maxMintAmount()
-        info.maxtx= `:small_blue_diamond: ${ maxMintAmountPerTx.toString()}\n`
+        info.maxtx= `${ maxMintAmountPerTx.toString()}\n`
     }else{
         //  info[5] = "maxTx: not found\n";
-         info.maxtx = ":small_blue_diamond: :grey_question:\n";
+         info.maxtx = ":grey_question:\n";
     }
 
      if(contract.PUBLIC_MINT_LIMIT_PER_WALLET){
          const maxMintWallet = await contract.PUBLIC_MINT_LIMIT_PER_WALLET()
         //  info[6] = `maxWallet = ${maxMintWallet.toString()}\n`
-         info.maxWallet = `:small_blue_diamond: ${maxMintWallet.toString()}\n`
+         info.maxWallet = `${maxMintWallet.toString()}\n`
      }else if(contract.MAX_PER_ACCOUNT){
         const maxSupply = await contract.MAX_PER_ACCOUNT()
         // info[6] = `maxWallet = ${maxSupply.toString()}\n`
-        info.maxWallet = `:small_blue_diamond: ${maxSupply.toString()}\n`
+        info.maxWallet = `${maxSupply.toString()}\n`
     }else if(contract.MAX_PER_WALLET){
         const maxSupply = await contract.MAX_PER_WALLET()
-        info.maxWallet = `:small_blue_diamond: ${ maxSupply.toString()}\n`
+        info.maxWallet = `${ maxSupply.toString()}\n`
     }else if(contract.limitPerAccount){
         const maxSupply = await contract.limitPerAccount()
-        info.maxWallet = `:small_blue_diamond: ${ maxSupply.toString()}\n`
+        info.maxWallet = `${ maxSupply.toString()}\n`
     }else{
         //  info[6] = "maxWallet: not found\n";
-         info.maxWallet = ":small_blue_diamond: :grey_question:\n";
+         info.maxWallet = ":grey_question:\n";
      }
  
      /* Checking if the contract has a revealed function. If it does, it will return the revealed
@@ -140,14 +140,14 @@ const infuraUrl='https://mainnet.infura.io/v3/0f9bcfd505d7446cb8d7a69bdef43497'
      if(contract.revealed){
          const revealed = await contract.revealed()
         //  info[7] = `revealed: ${revealed.toString()}\n`
-         info.reveled = `:small_blue_diamond: ${revealed.toString()}\n`
+         info.reveled = `${revealed.toString()}\n`
      }else{
         //  info[7] = "revealed: not found\n";
-         info.reveled = ":small_blue_diamond: Insta Reveal\n";
+         info.reveled = "Insta Reveal\n";
      } 
      let left =  maxSupply - totalSupply;
     //  info[8] = `left: ${left.toString()}\n`;
-     info.left = `:small_blue_diamond:left: ${left.toString()}\n`;
+     info.left = `${left.toString()}\n`;
      return info;
  
  }
