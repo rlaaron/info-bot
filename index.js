@@ -5,7 +5,8 @@ const client = new Discord.Client({ intents })
 require('dotenv').config();
 
 const { getAbi, geturl } = require("./app");
-const apiKey = 'MSV9PH9SH128GIBNEHW7IGP2WU2TN26RSU'
+const apiKey = process.env.ETHERSCANKEY
+
 
 /*Activate the bot and check the status*/
 client.once("ready", (bot) => {

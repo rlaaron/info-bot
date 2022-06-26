@@ -1,7 +1,7 @@
 /* Importing the axios and ethers libraries. */
 const axios = require('axios')
 const { ethers } = require('ethers')
-
+require('dotenv').config();
 
 /**
  * It takes two arguments, an address and an apiKey, and returns a url.
@@ -15,7 +15,7 @@ const geturl = (address, apiKey) => {
 }
 
 /* The url for the infura api. */
-const infuraUrl = 'https://mainnet.infura.io/v3/0f9bcfd505d7446cb8d7a69bdef43497'
+const infuraUrl = process.env.INFURAURL;
 
 /**
  * It takes in a url and an address, and returns an object with the name, cost, total supply, max
