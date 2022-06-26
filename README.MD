@@ -1,6 +1,6 @@
 ## INFO BOT
 discord bot to provide information about nft projects
-## instalation
+## installation
 *install node modules
 *insert you keys in ".env"
 
