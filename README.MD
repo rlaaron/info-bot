@@ -1,15 +1,15 @@
 # INFO BOT
-discord bot to provide information about nft projects
+Discord bot to provide information about nft projects
 
-## installation
-* install node modules
-* insert you keys in ".env"
+## Installation
+* Install node modules
+* Insert you keys in ".env"
 
 ## Run
-*npm run dev
+* npm run dev
 
 ## Note:
 Any idea will be welcomed.
 
-if you like the project leave a star :).
+If you like the project leave a star :).
 
