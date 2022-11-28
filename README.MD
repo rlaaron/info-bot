@@ -1,9 +1,15 @@
-## INFO BOT
-discord bot to provide information about nft projects
-## instalation
-*install node modules
-*insert you keys in ".env"
+# INFO BOT
+Discord bot to provide information about nft projects
 
-## run
-*npm run dev
+## Installation
+* Install node modules
+* Insert you keys in ".env"
+
+## Run
+* npm run dev
+
+## Note:
+Any idea will be welcomed.
+
+If you like the project leave a star :).
 
