@@ -23,28 +23,33 @@ client.on('messageCreate', async (msg) => {
         const arguments = msg.content.slice(prefix.length).split(/ +/);
         const comand = arguments.shift().toLowerCase();
         const addres2 = arguments.toString(16);
-        const resultPrmoise = getAbi(geturl(addres2, apiKey), addres2);
-        (async () => {
-            const result = await Promise.resolve(resultPrmoise)
-            if (comand == "c") {
-                /* Creating a message embed. */
-                const embed = new Discord.MessageEmbed()//
-                    .setColor("BLUE")
-                    .setTitle(`:pushpin: ${result.name}`)
-                    .addFields(
-                        { name: ":moneybag: Cost:", value: `${result.cost}`, inline: true },
-                        { name: ":small_blue_diamond: TotalSupply", value: result.totalSupply, inline: true },
-                        { name: ":small_blue_diamond: Max Supply", value: result.maxsupply, inline: true },
-                        { name: ":small_blue_diamond: Max Tx", value: result.maxtx, inline: true },
-                        { name: ":small_blue_diamond: Max Wallet", value: result.maxWallet, inline: true },
-                        { name: ":small_blue_diamond: Reveled", value: result.reveled, inline: true },
-                        { name: ":small_blue_diamond: Left", value: result.left, inline: true },
-                    )
-                    .setThumbnail("https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/1257px-Ethereum_logo_2014.svg.png")
-                msg.reply({ embeds: [embed], components: [] })
-            }
-        })();
+        try{
+            const resultPrmoise = getAbi(geturl(addres2, apiKey), addres2);
+            (async () => {
+                const result = await Promise.resolve(resultPrmoise)
+                if (comand == "c") {
+                    /* Creating a message embed. */
+                    const embed = new Discord.MessageEmbed()//
+                        .setColor("BLUE")
+                        .setTitle(`:pushpin: ${result.name}`)
+                        .addFields(
+                            { name: ":moneybag: Cost:", value: `${result.cost}`, inline: true },
+                            { name: ":small_blue_diamond: TotalSupply", value: result.totalSupply, inline: true },
+                            { name: ":small_blue_diamond: Max Supply", value: result.maxsupply, inline: true },
+                            { name: ":small_blue_diamond: Max Tx", value: result.maxtx, inline: true },
+                            { name: ":small_blue_diamond: Max Wallet", value: result.maxWallet, inline: true },
+                            { name: ":small_blue_diamond: Reveled", value: result.reveled, inline: true },
+                            { name: ":small_blue_diamond: Left", value: result.left, inline: true },
+                        )
+                        .setThumbnail("https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/1257px-Ethereum_logo_2014.svg.png")
+                    msg.reply({ embeds: [embed], components: [] })
+                }
+            })();
+        }catch(err){
+            console.log(err)
+        }
     }
+
 
 })
 /* discord bot token */
